@@ -53,7 +53,8 @@ browser.webRequest.onBeforeRequest.addListener(
 
 // Single-page sites (Reddit, YouTube, ...) change pages without a new request, so
 // webRequest never sees a click on a link. Catch those URL changes here and send the
-// tab to the gate unless it is still on the page that got the free pass.
+// tab to the gate unless it is still on the exact path that got the free pass; any change
+// of path goes to the gate.
 browser.tabs.onUpdated.addListener(async (tabId, ch) => {
   if (!ch.url) return;
   const { sites = [], sessions = {}, free = {} } = await get(["sites", "sessions", "free"]);
@@ -62,7 +63,7 @@ browser.tabs.onUpdated.addListener(async (tabId, ch) => {
   const sess = sessions[site];
   if (sessionLeft(sess) > 0) return;
   const f = free[tabId];
-  if (f && (Date.now() - f.ts < 2500 || pagePath(ch.url) === f.path)) return;
+  if (f && pagePath(ch.url) === f.path) return;
   browser.tabs.update(tabId, { url: gateUrl(ch.url, site) });
 });
 
