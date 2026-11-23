@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>A gentle pause</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="gate">
+  <main class="stage">
+    <div class="steps" id="steps">
+      <span id="dot1" class="on">Intention</span><i></i><span id="dot2">Pause</span>
+    </div>
+
+    <!-- Step 1: reason and time -->
+    <section class="panel" id="step1">
+      <h1 id="title"></h1>
+      <p class="lead" id="lead">Before you go on, take a moment to check in with yourself.</p>
+      <div id="prev" class="callout" hidden><b>What you set out to do</b><span id="prevText"></span></div>
+      <div class="group">
+        <label class="field-label" for="reason">What brings you here?</label>
+        <textarea id="reason" placeholder="A few words are enough" autofocus></textarea>
+      </div>
+      <div class="group">
+        <span class="field-label">How much time would you like to give it?</span>
+        <div class="chips">
+          <button type="button" class="chip-btn" data-m="5">5 min</button>
+          <button type="button" class="chip-btn" data-m="10">10 min</button>
+          <button type="button" class="chip-btn" data-m="15">15 min</button>
+          <button type="button" class="chip-btn" data-m="30">30 min</button>
+          <input id="minutes" type="number" min="1" max="240" aria-label="Minutes">
+          <span class="muted">min</span>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="cancel" class="ghost">Not now</button>
+        <button id="next" class="primary" disabled>Continue</button>
+      </div>
+    </section>
+
+    <!-- Step 2: breathing -->
+    <section class="panel center" id="step2" hidden>
+      <h1>Let's breathe together</h1>
+      <p class="recap" id="recap"></p>
+      <div class="breath-wrap">
+        <div class="orb-stage"><div class="halo" id="halo"></div><div class="guide"></div><div class="orb" id="orb"></div></div>
+        <div class="breath-label" id="breathLabel"></div>
+      </div>
+      <div class="dots" id="dots"></div>
+      <div class="actions">
+        <button id="back" class="ghost">Back</button>
+        <span class="status" id="status"></span>
+        <button id="go" class="primary" disabled>Continue to site</button>
+      </div>
+    </section>
+  </main>
+  <script src="common.js"></script>
+  <script src="interstitial.js"></script>
+</body>
+</html>

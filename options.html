@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Why Am I Opening This</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+  <h1>Why Am I Opening This</h1>
+  <p class="muted">A gentle pause before the sites that pull you in, and a calm look at your time.</p>
+
+  <section class="card">
+    <div class="card-head">
+      <h2>Where your time goes</h2>
+      <div class="controls" id="frameControls"></div>
+    </div>
+    <div id="tiles" class="tiles"></div>
+    <div id="donut" class="donut-wrap"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <h2 id="lineTitle">Time per day</h2>
+      <div class="controls" id="lineControls"></div>
+    </div>
+    <div id="lineBox" class="line-box"></div>
+    <div id="lineLegend" class="legend-inline"></div>
+  </section>
+
+  <section class="card">
+    <h2>Sites</h2>
+    <form class="row" id="add-form">
+      <input id="add-input" placeholder="example.com or example.com/feed" style="max-width:320px">
+      <button type="submit" class="primary">Add</button>
+      <span class="muted" id="add-msg"></span>
+    </form>
+    <div id="sites" class="list"></div>
+  </section>
+
+  <section class="card">
+    <h2>Settings</h2>
+    <div class="grid">
+      <label><span>Breathing cycles</span>
+        <input id="breathCycles" type="number" min="0" max="20">
+        <small>10 s each, 0 turns the breathing step off</small></label>
+      <label><span>Default time per visit (min)</span>
+        <input id="defaultMinutes" type="number" min="1" max="240"></label>
+      <label><span>Check-in after (min of combined time)</span>
+        <input id="limitMinutes" type="number" min="0" max="600">
+        <small>Popup at every multiple of this per day, 0 turns it off</small></label>
+    </div>
+    <div class="row"><button id="save" class="primary">Save settings</button><span class="muted" id="save-msg"></span></div>
+  </section>
+
+  <section class="card">
+    <h2>Daily details, last 7 days</h2>
+    <div id="week" class="table-wrap"></div>
+  </section>
+
+  <section class="card">
+    <h2>What brought you there</h2>
+    <div id="reasons" class="table-wrap"></div>
+  </section>
+
+  <div class="row"><button id="clear" class="danger small">Clear recorded history</button></div>
+
+  <script src="common.js"></script>
+  <script src="charts.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Why Am I Opening This",
+  "version": "0.1.0",
+  "description": "Asks for a reason before opening selected websites and tracks the time you spend on them.",
+  "icons": { "48": "icon.svg", "96": "icon.svg" },
+  "browser_specific_settings": {
+    "gecko": { "id": "why-open@local", "strict_min_version": "113.0" }
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "idle",
+    "alarms",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    { "matches": ["<all_urls>"], "js": ["common.js", "content.js"], "run_at": "document_idle" }
+  ],
+  "background": { "scripts": ["common.js", "background.js"], "persistent": false },
+  "browser_action": {
+    "default_title": "Why Am I Opening This",
+    "default_popup": "popup.html",
+    "default_icon": "icon.svg"
+  },
+  "options_ui": { "page": "options.html", "open_in_tab": true },
+  "web_accessible_resources": ["interstitial.html"]
+}
