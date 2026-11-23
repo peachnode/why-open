@@ -4,8 +4,9 @@
   "version": "0.1.0",
   "description": "Asks for a reason before opening selected websites and tracks the time you spend on them.",
   "icons": {
-    "48": "icon.svg",
-    "96": "icon.svg"
+    "48": "icon-48.png",
+    "96": "icon-96.png",
+    "128": "icon-128.png"
   },
   "browser_specific_settings": {
     "gecko": {
@@ -49,7 +50,10 @@
   "browser_action": {
     "default_title": "Why Am I Opening This",
     "default_popup": "popup.html",
-    "default_icon": "icon.svg"
+    "default_icon": {
+      "48": "icon-48.png",
+      "96": "icon-96.png"
+    }
   },
   "options_ui": {
     "page": "options.html",
